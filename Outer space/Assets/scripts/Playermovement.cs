@@ -8,10 +8,12 @@ public class Playermovement : MonoBehaviour
     [SerializeField] 
     float speed;
 
+   
     Vector2 KeyInput, minBound, maxBound;       
     bulletspawn bullet;
     private void Awake()
     {
+      //  animator = GetComponent<Animator>
         bullet = GetComponent<bulletspawn>();   
     }
     void Start()
