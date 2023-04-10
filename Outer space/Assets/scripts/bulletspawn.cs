@@ -10,6 +10,12 @@ public class bulletspawn : MonoBehaviour
     [SerializeField]
     bool isAI;
     Coroutine firingCoroutine;
+    AudioSound audiosound;
+
+     void Awake()
+    {
+        audiosound = FindObjectOfType<AudioSound>();  
+    }
     private void Start()
     {
         if (isAI) 
@@ -52,6 +58,7 @@ public class bulletspawn : MonoBehaviour
             {
                 rb.velocity = new Vector2 (rb.velocity.x , rb.velocity.y *-1);
             }
+            audiosound.PlayshootingClip();
             Destroy(instance, projectileLifetime);
             yield return new WaitForSeconds(firingRate);
         }
